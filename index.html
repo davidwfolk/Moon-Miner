@@ -27,11 +27,12 @@
     <section class='section-2 mt-5 mb-5'>
       <div class='container'>
         <div class='row text-center'>
-          <div class='col-12 col-md-4 m-auto text-center order-0'>
+          <div class='col-12 col-md-4 m-auto text-center order-0' id='powerup-stats'>
+            <!--PowerUp Stats draw-->
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title"></h5>
-                <h3 class="card-subtitle mb-2 text-muted text-white">Stats</h3>
+                <h3 class="card-subtitle mb-2 text-muted text-white">PowerUp Stats</h3>
                 <p class="card-text text-left"></p>
                 <h6 class='text-left ml-3'>Cheese Per Second:</h6>
                 <h6 class='text-left ml-3'>Total Cheese Multiplier:</h6>
@@ -41,16 +42,20 @@
           <div class='col-12 col-md-4 m-auto img-fluid order-1'>
             <img src="moon.png" class="img-fluid" onclick='mine("dig")' alt="">
           </div>
-          <div class='col-12 col-md-4 m-auto text-center order-2'>
+          <div id='clickUpgrade' class='col-12 col-md-4 m-auto text-center order-2'>
+            <!--inventory draw-->
+          <div id='autoUpgrade'>
+              <!--autoupgrade draw-->
+          </div>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title"></h5>
                 <h3 class="card-subtitle mb-2 text-muted">Inventory</h3>
                 <h5 class="card-text text-warning text-left ml-3"><strong>Cheese Count: <span id="cheese-count">0</span></strong></h5>
-                <h6 class='text-left ml-3'>Current pickaxes:<span id="pickaxe-count">0</span></h6>
-                <h6 class='text-left ml-3'>Current shovels:</h6>
-                <h6 class='text-left ml-3'>Current rovers:</h6>
-                <h6 class='text-left ml-3'>Current bulldozers:</h6>
+                <h6 class='text-left ml-3'>Current pickaxes: <span id="pickaxe-count">0</span></h6>
+                <h6 class='text-left ml-3'>Current shovels: <span id="shovel-count">0</span></h6>
+                <h6 class='text-left ml-3'>Current rovers: <span id="rover-count">0</span></h6>
+                <h6 class='text-left ml-3'>Current bulldozers: <span id="bulldozer-count">0</span></h6>
               </div>
             </div>
           </div>
