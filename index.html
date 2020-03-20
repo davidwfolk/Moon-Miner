@@ -35,7 +35,7 @@
                 <h3 class="card-subtitle mb-2 text-muted text-white">PowerUp Stats</h3>
                 <p class="card-text text-left"></p>
                 <h6 class='text-left ml-3'>Cheese Per Second:</h6>
-                <h6 class='text-left ml-3'>Total Cheese Multiplier:</h6>
+                <h6 class='text-left ml-3'>Total Cheese Multiplier: <span id="tcm">0</span></h6>
               </div>
             </div>
           </div>
@@ -71,10 +71,10 @@
                 <h3 class="card-subtitle mb-2 text-warning"><strong>BUY PowerUps</strong></h3>
                 <p class="card-text text-white">Dark Buttons are powerUps EVERY CLICK</p>
                 <p class="card-text text-white">Light Buttons are powerUps EVERY 3 seconds</p>
-                <button class="btn btn-dark">Pickaxes - 100 cheese</button>
-                <button class="btn btn-dark">Shovels - 200 cheese</button>
-                <button class="btn btn-light">Rovers - 1600 cheese</button>
-                <button class="btn btn-light">BullDozers - 1600 cheese</button>
+                <button id="pickaxe" class="btn btn-dark" onclick='purchaseSingleUpgrades("pickaxes")'>Pickaxes - 100 cheese</button>
+                <button class="btn btn-dark"onclick='purchaseSingleUpgrades("shovels")'>Shovels - 200 cheese</button>
+                <button class="btn btn-light"onclick='purchaseAutoUpgrades("rovers")'>Rovers - 1600 cheese</button>
+                <button class="btn btn-light"onclick='purchaseAutoUpgrades("bulldozers")'>BullDozers - 1600 cheese</button>
               </div>
             </div>
           </div>
