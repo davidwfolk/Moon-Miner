@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
+    <link rel='stylesheet' href='style.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js'>
+
+    <title>Moon Miner</title>
+  </head>
+
+<body class='bg-moon'>
+  <section class='section-1'>
+    <header class='container text-center m-auto'>
+      <div class="row text-center">
+        <h1 class='col-12 header text-center text-white'>Moon Miner</h1>
+      </div>
+    </header>
+  </section>
+
+  <main class=''>
+
+    <section class='section-2 mt-5 mb-5'>
+      <div class='container'>
+        <div class='row text-center'>
+          <div class='col-12 col-md-4 m-auto text-center order-0'>
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <h3 class="card-subtitle mb-2 text-muted text-white">Stats</h3>
+                <p class="card-text text-left"></p>
+                <h6 class='text-left ml-3'>Cheese Per Second:</h6>
+                <h6 class='text-left ml-3'>Total Cheese Multiplier:</h6>
+              </div>
+            </div>
+          </div>
+          <div class='col-12 col-md-4 m-auto img-fluid order-1'>
+            <img src="moon.png" class="img-fluid" onclick='mine("dig")' alt="">
+          </div>
+          <div class='col-12 col-md-4 m-auto text-center order-2'>
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <h3 class="card-subtitle mb-2 text-muted">Inventory</h3>
+                <h5 class="card-text text-warning text-left ml-3"><strong>Cheese Count: <span id="cheese-count">0</span></strong></h5>
+                <h6 class='text-left ml-3'>Current pickaxes:<span id="pickaxe-count">0</span></h6>
+                <h6 class='text-left ml-3'>Current shovels:</h6>
+                <h6 class='text-left ml-3'>Current rovers:</h6>
+                <h6 class='text-left ml-3'>Current bulldozers:</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!--PowerUp purchases-->
+    <section class='section-3'>
+      <div class='container'>
+        <div class='row m-auto'>
+          <div class='col-12 m-auto'>
+            <div class="card text-center bg-transparent">
+              <div class="card-body ">
+                <h5 class="card-title"></h5>
+                <h3 class="card-subtitle mb-2 text-warning"><strong>BUY PowerUps</strong></h3>
+                <p class="card-text text-white">Dark Buttons are powerUps EVERY CLICK</p>
+                <p class="card-text text-white">Light Buttons are powerUps EVERY 3 seconds</p>
+                <button class="btn btn-dark">Pickaxes - 100 cheese</button>
+                <button class="btn btn-dark">Shovels - 200 cheese</button>
+                <button class="btn btn-light">Rovers - 1600 cheese</button>
+                <button class="btn btn-light">BullDozers - 1600 cheese</button>
+              </div>
+            </div>
+          </div>
+          <div class='col'>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class=''>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous'></script>
+    <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous'></script>
+    <script src='https://use.fontawesome.com/releases/v5.12.1/js/all.js' data-auto-replace-svg></script>
+   <script src='main.js'></script>
+  </body>
+</html>
