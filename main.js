@@ -51,31 +51,35 @@ function mine(playerChoice) {
 
 }
 
-//think this is for a single upgrade -- how to make it for all upgrades?//
-function singleUpgrades(upgradeChoice){
-  let singUpgrade = automaticUpgrades[upgradeChoice]
-  let addUpgrade =  automaticUpgrades + singUpgrade
-  if (addUpgrade < automaticUpgrades[upgradeChoice]) {
-    addUpgrade = 0
-  }
+//this is to purchase a single clickUpgrade -- need to increase the quantity of item purchased by 1//
+function purchaseSingleUpgrades(upgradeChoice){
+
 
 }
+
+//this is to purhase the automaticUpgrades -- need to increase the quantity of item purchased
+function purchaseAutoUpgrades(autoUpgradeChoice) {
+
+}
+
+//this will calculate the modifier of the cheese from each clickUpgrade
+function calcSingleUpgrade (calcChoice) {
+
+}
+
+//this will calculate the automatic modifieer of the cheese from each AutomaticUpgrade
+function calcAutoUpgrade (autoCalcChoise) {
+
+}
+
 
 function drawClickUpgrades() {
 let template = ''
   for (const key in clickUpgrades) {
   if (clickUpgrades.hasOwnProperty(key)) {
     let item = clickUpgrades[key];
-    template = /*html*/`
-          <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <h3 class="card-subtitle mb-2 text-muted">Inventory</h3>
-            <h5 class="card-text text-warning text-left ml-3"><strong>Cheese Count: <span id="cheese-count">0</span></strong></h5>
+    template += /*html*/`
             <h6 class='text-left ml-3'>${item.name}: ${item.quantity}</h6>
-            <h6 class='text-left ml-3'>${item.name}: ${item.quantity}</h6>
-          </div>
-        </div>
 
     `
   }
@@ -88,11 +92,8 @@ function drawAutomaticUpgrades() {
   for (const key in automaticUpgrades) {
   if (automaticUpgrades.hasOwnProperty(key)) {
     let item = automaticUpgrades[key];
-    template = /*html*/`
+    template += /*html*/`
             <h6 class='text-left ml-3'>${item.name}: ${item.quantity}</h6>
-            <h6 class='text-left ml-3'>${item.name}: ${item.quantity}</h6>
-          </div>
-        </div>
 `
       }
       document.getElementById("autoUpgrade").innerHTML = template
@@ -100,13 +101,9 @@ function drawAutomaticUpgrades() {
 }
 
 
-// // no idea how to make this work right now //
-// function startInterval() {
-//   let 
-
-//   let interval = setInterval(drawAutoUpgrades, 3000)
-//   setTimeout(function () { cat.dosed = false; clearInterval(interval) }, 10000)
-//   cat.dosed = true
-// }
+// no idea how to make this work right now //
+  function startInterval() {
+    //  setInterval(collectAutoUpgrades, 3000);
+}
 drawClickUpgrades()
 drawAutomaticUpgrades()
