@@ -1,5 +1,7 @@
 let cheese = 0
 
+let autoCheese = 0
+
 let digging = {
   "dig": 1
 }
@@ -9,11 +11,11 @@ let clickUpgrades = {
     name: "pickaxes",
     price: 1,
     quantity: 0,
-    multiplier: 10
+    multiplier: 1
   },
   shovels: {
     name: "shovels",
-    price: 200,
+    price: 3,
     quantity: 0,
     multiplier: 2
   }
@@ -22,13 +24,13 @@ let clickUpgrades = {
 let automaticUpgrades = {
   rovers: {
     name: "rovers",
-    price: 600,
+    price: 4,
     quantity: 0,
     multiplier: 20
   },
   bulldozers: {
     name: "bulldozers",
-    price: 5,
+    price: 2,
     quantity: 0,
     multiplier: 40
   }
@@ -56,6 +58,7 @@ function purchaseSingleUpgrades(upgradeChoice){
     if (cheese >= clickUpgrades[upgradeChoice].price) {
       clickUpgrades[upgradeChoice].quantity ++
       cheese -= clickUpgrades[upgradeChoice].price
+      clickUpgrades[upgradeChoice].price += 50
       console.log(clickUpgrades[upgradeChoice].quantity);
     }
 
@@ -70,6 +73,7 @@ function purchaseAutoUpgrades(autoUpgradeChoice) {
     if (cheese >= automaticUpgrades[autoUpgradeChoice].price) {
       automaticUpgrades[autoUpgradeChoice].quantity ++
       cheese -= automaticUpgrades[autoUpgradeChoice].price
+      automaticUpgrades[autoUpgradeChoice].price += 200
       console.log(automaticUpgrades[autoUpgradeChoice].quantity);
 }
 drawAutomaticUpgrades()
@@ -79,15 +83,25 @@ drawAutomaticUpgrades()
 function calcSingleUpgrade () {
 
   for (const key in clickUpgrades) {
-    cheese += clickUpgrades[key].modifier * clickUpgrades[key].quantity
+    
+    cheese += clickUpgrades[key].multiplier * clickUpgrades[key].quantity
+
 } 
 }
 
-//this will calculate the automatic modifier of the cheese from each AutomaticUpgrade
+//this will calculate the automatic multiplier of the cheese from each AutomaticUpgrade - add quantity after 3 seconds
 function calcAutoUpgrade () {
+  for (let key in automaticUpgrades) {
+   cheese += automaticUpgrades[key].multiplier * automaticUpgrades[key].quantity
+}
 
 }
 
+// no idea how to make this work right now //
+    function startInterval() {
+      let collectionInterval = setInterval(calcAutoUpgrade, 3000);
+
+}
 
 function drawClickUpgrades() {
 let template = ''
@@ -95,12 +109,14 @@ let template = ''
   if (clickUpgrades.hasOwnProperty(key)) {
     let item = clickUpgrades[key];
     template += /*html*/`
-            <h6 class='text-left ml-3'>${item.name}: ${item.quantity}</h6>
+            <h6 class='text-left ml-3'>${item.name}: ${item.quantity} Extra Cheese: ${item.multiplier * item.quantity}</h6>
 
     `
   }
   document.getElementById("clickUpgrade").innerHTML = template
 }
+drawPickAxeUpgradePrice()
+drawShovelsUpgradePrice()
 }
 
 function drawAutomaticUpgrades() {
@@ -109,17 +125,41 @@ function drawAutomaticUpgrades() {
   if (automaticUpgrades.hasOwnProperty(key)) {
     let item = automaticUpgrades[key];
     template += /*html*/`
-            <h6 class='text-left ml-3'>${item.name}: ${item.quantity}</h6>
+            <h6 class='text-justify ml-3'>${item.name}: ${item.quantity} Extra Cheese: ${item.multiplier * item.quantity}</h6>
 `
       }
       document.getElementById("autoUpgrade").innerHTML = template
     }
+    drawRoversUpgradePrice()
+    drawBullDozersUpgradePrice()
 }
 
+function drawPickAxeUpgradePrice() {
+  let singlePowerup = clickUpgrades.pickaxes.price
+  // @ts-ignore
+  document.getElementById("pickaxes-price").innerText = singlePowerup
+}
 
-// no idea how to make this work right now //
-  function startInterval() {
-    //  setInterval(collectAutoUpgrades, 3000);
+function drawShovelsUpgradePrice() {
+  let singlePowerup = clickUpgrades.shovels.price
+  // @ts-ignore
+  document.getElementById("shovels-price").innerText = singlePowerup
+}
+
+function drawRoversUpgradePrice() {
+  let singlePowerup = automaticUpgrades.rovers.price
+  // @ts-ignore
+  document.getElementById("rovers-price").innerText = singlePowerup
+}
+
+function drawBullDozersUpgradePrice() {
+  let singlePowerup = automaticUpgrades.bulldozers.price
+  // @ts-ignore
+  document.getElementById("bulldozers-price").innerText = singlePowerup
 }
 drawClickUpgrades()
 drawAutomaticUpgrades()
+startInterval()
+
+
+//why is the autoUpgrade cheese count only showing up when I click??
