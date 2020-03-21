@@ -110,7 +110,7 @@ let template = ''
   if (clickUpgrades.hasOwnProperty(key)) {
     let item = clickUpgrades[key];
     template += /*html*/`
-            <h6 class='text-left ml-3'>${item.name}: ${item.quantity} Extra Cheese: ${item.multiplier * item.quantity}</h6>
+            <h6 class='text-left ml-1'>${item.name}: ${item.quantity} Extra Cheese: ${item.multiplier * item.quantity}</h6>
 
     `
   }
