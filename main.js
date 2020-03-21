@@ -118,6 +118,7 @@ let template = ''
 }
 drawPickAxeUpgradePrice()
 drawShovelsUpgradePrice()
+totalCheeseX()
 }
 
 function drawAutomaticUpgrades() {
@@ -133,6 +134,7 @@ function drawAutomaticUpgrades() {
     }
     drawRoversUpgradePrice()
     drawBullDozersUpgradePrice()
+    CheesePerSec()
 }
 
 function drawPickAxeUpgradePrice() {
@@ -161,15 +163,20 @@ function drawBullDozersUpgradePrice() {
 
 function totalCheeseX () {
   let totalCheese = (clickUpgrades.pickaxes.quantity * clickUpgrades.pickaxes.multiplier) + (clickUpgrades.shovels.quantity * clickUpgrades.shovels.multiplier)
-
     // @ts-ignore
     document.getElementById("tcm").innerText = totalCheese
+}
+
+function CheesePerSec () {
+  let cheesePS = (automaticUpgrades.rovers.quantity * automaticUpgrades.rovers.multiplier) + (automaticUpgrades.bulldozers.quantity * automaticUpgrades.bulldozers.multiplier)
+  // @ts-ignore
+  document.getElementById("autoCheese").innerText = cheesePS
 }
 
 drawClickUpgrades()
 drawAutomaticUpgrades()
 startInterval()
-totalCheeseX()
 
 
-//why is the autoUpgrade cheese count only showing up when I click??
+
+//why is the totalCheeseX zero?
