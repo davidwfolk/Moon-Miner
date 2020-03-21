@@ -9,13 +9,13 @@ let digging = {
 let clickUpgrades = {
   pickaxes: {
     name: "pickaxes",
-    price: 1,
+    price: 25,
     quantity: 0,
     multiplier: 1
   },
   shovels: {
     name: "shovels",
-    price: 3,
+    price: 50,
     quantity: 0,
     multiplier: 2
   }
@@ -24,13 +24,13 @@ let clickUpgrades = {
 let automaticUpgrades = {
   rovers: {
     name: "rovers",
-    price: 4,
+    price: 250,
     quantity: 0,
     multiplier: 20
   },
   bulldozers: {
     name: "bulldozers",
-    price: 2,
+    price: 500,
     quantity: 0,
     multiplier: 40
   }
@@ -94,7 +94,8 @@ function calcAutoUpgrade () {
   for (let key in automaticUpgrades) {
    cheese += automaticUpgrades[key].multiplier * automaticUpgrades[key].quantity
 }
-
+  // @ts-ignore
+  document.getElementById("cheese-count").innerText = cheese
 }
 
 // no idea how to make this work right now //
@@ -125,7 +126,7 @@ function drawAutomaticUpgrades() {
   if (automaticUpgrades.hasOwnProperty(key)) {
     let item = automaticUpgrades[key];
     template += /*html*/`
-            <h6 class='text-justify ml-3'>${item.name}: ${item.quantity} Extra Cheese: ${item.multiplier * item.quantity}</h6>
+            <h6 class='text-left ml-1'>${item.name}: ${item.quantity} Extra Cheese: ${item.multiplier * item.quantity}</h6>
 `
       }
       document.getElementById("autoUpgrade").innerHTML = template
@@ -157,9 +158,18 @@ function drawBullDozersUpgradePrice() {
   // @ts-ignore
   document.getElementById("bulldozers-price").innerText = singlePowerup
 }
+
+function totalCheeseX () {
+  let totalCheese = (clickUpgrades.pickaxes.quantity * clickUpgrades.pickaxes.multiplier) + (clickUpgrades.shovels.quantity * clickUpgrades.shovels.multiplier)
+
+    // @ts-ignore
+    document.getElementById("tcm").innerText = totalCheese
+}
+
 drawClickUpgrades()
 drawAutomaticUpgrades()
 startInterval()
+totalCheeseX()
 
 
 //why is the autoUpgrade cheese count only showing up when I click??
